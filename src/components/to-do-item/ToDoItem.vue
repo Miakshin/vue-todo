@@ -16,9 +16,13 @@
 </template>
 
 <script>
+
+import { Note } from "../../classes" ;
 export default {
   name: "dashbord",
-  props: ["item"],
+  props: {
+    item : Note
+  },
   methods: {
     handleDone: function() {
       this.item.done = !this.item.done;

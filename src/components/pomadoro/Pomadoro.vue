@@ -23,6 +23,12 @@
           l-g break</a>
         </nav>
       </header>
+      <main class="pomadoro__main">
+        <span class="timer">  {{timer | secondsToString}}  </span>
+      </main>
+      <footer class="pomadoro__footer">
+        <input type="button" value="start" />
+      </footer>
     </section>
 </template>
 
@@ -31,7 +37,8 @@ export default {
   name: "pomadoro",
   data() {
     return {
-      flag: "pomadoro"
+      flag: "pomadoro",
+      timer: 1500
     };
   },
   methods: {
@@ -56,6 +63,13 @@ export default {
           return this.todos
       }
       return
+    }
+  },
+  filters: {
+    secondsToString: function(seconds) {
+      const minutes = (seconds / 60).toFixed;
+      const sec = seconds - minutes*60;
+      return `${minutes}:${sec}`
     }
   }
 };
@@ -96,5 +110,35 @@ export default {
   border-radius: 31px 31px 0px 0px;
   background-color: #ffffff;
   color: #35495e;
+}
+.pomadoro__main{
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span{
+    font-size: 92px;
+  }
+}
+.pomadoro__footer{
+  height: 100px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  input[type="button"]{
+    width: 70%;
+    font-size: 30px;
+    text-transform: uppercase;
+    height: 70%;
+    color: #fff;
+    background: #41b883;
+    border: 0;
+    padding: 0;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+  }
 }
 </style>

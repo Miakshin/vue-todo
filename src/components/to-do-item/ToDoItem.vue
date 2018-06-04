@@ -21,7 +21,7 @@ import { Note } from "../../classes" ;
 export default {
   name: "dashbord",
   props: {
-    item : Note
+    item :  Object || Note
   },
   methods: {
     handleDone: function() {

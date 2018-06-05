@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="">
     <main class="pomadoro__main">
       <span class="timer">  {{timer | secondsToString}}  </span>

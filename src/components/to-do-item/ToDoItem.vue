@@ -26,7 +26,6 @@ export default {
   methods: {
     handleDone: function() {
       this.item.done = !this.item.done;
-      console.log(this.item.done);
     }
   }
 };
